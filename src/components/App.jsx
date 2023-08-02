@@ -12,7 +12,7 @@ export const App = () => {
   const [filter, setFilter] = useState('');
 
   const createPhoneNumber = data => {
-    !contacts ? setContacts([data]) : setContacts(prev => [data, ...prev]);
+    !contacts ? setContacts(data) : setContacts(prev => [data, ...prev]);
   };
 
   const filterContacts = () => {
@@ -25,9 +25,6 @@ export const App = () => {
     setFilter(target.value);
   };
 
-  // !_____________________________
-  // const newState = state => {};
-
   const deleteContact = id => {
     const arr = contacts.filter(contact => contact.id !== id);
     setContacts(arr);
@@ -36,12 +33,15 @@ export const App = () => {
 
   useEffect(() => {
     const stryngifiedContacts = localStorage.getItem('contacts');
+    console.log('stryngifiedContacts: ', stryngifiedContacts);
+
     const currentContacts = JSON.parse(stryngifiedContacts) ?? [];
     setContacts(currentContacts);
   }, []);
 
   useEffect(() => {
     const stryngifiedContacts = JSON.stringify(contacts);
+
     localStorage.setItem('contacts', stryngifiedContacts);
   }, [contacts]);
 
