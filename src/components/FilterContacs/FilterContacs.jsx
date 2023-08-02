@@ -5,7 +5,7 @@ import {
   StyledInputThumb,
 } from 'components/GlobalStyled/Global.styled';
 
-export const FilterContacs = ({ handleFilter, state }) => {
+export const FilterContacs = ({ handleFilter, filter }) => {
   return (
     <StyledForm>
       <StyledInputThumb>
@@ -17,7 +17,7 @@ export const FilterContacs = ({ handleFilter, state }) => {
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           onChange={handleFilter}
-          value={state.filter}
+          value={filter}
           required
         />
       </StyledInputThumb>
